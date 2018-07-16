@@ -58,4 +58,14 @@ router.post('/add', upload.single('cover'), function(req, res, next) {
   req.flash('success_msg', 'Album Saved');
   res.redirect('/albums');
 });
+
+router.get('/details/:id', function (req, res) {
+  var id = req.params.id;
+  var albumRef = new Firebase("https://albumz-f3910.firebaseio.com/albums/" + id);
+  albumRef.once('value', function(snapshot) {
+    var album = snapshot.val()
+    res.render('albums/details', {album, id});
+  })
+});
+
 module.exports = router;
