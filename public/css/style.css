@@ -1,4 +1,4 @@
-.albums img {
+.albums img, .album img {
     width: 100%;
     border: 2px #fff solid;
 }
