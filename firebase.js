@@ -1,4 +1,4 @@
-var Firebase = require('firebase');
+var firebase = require('firebase');
 var config = {
   apiKey: "AIzaSyCe0Bls5D_hhBgmjiQmnYUbeqBUHQWFTZk",
   authDomain: "albumz-f3910.firebaseapp.com",
@@ -7,6 +7,6 @@ var config = {
   storageBucket: "albumz-f3910.appspot.com",
   messagingSenderId: "691757684482"
 };
-var fbRef = Firebase.initializeApp(config);
+firebase.initializeApp(config);
 
-module.exports = fbRef;
+module.exports = firebase;

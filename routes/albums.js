@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var fbRef = require('../firebase');
+var firebase = require('../firebase');
 var multer = require('multer');
 var upload = multer({dest: './public/images/uploads'});
 
 router.get('/', function (req, res, next) {
-  var albumRef = fbRef.child('albums');
+  var albumRef = firebase.database().ref('/albums');
 
-  albumRef.once('value', function (snapshot) {
+  albumRef.once('value').then(snapshot => {
     var albums = [];
     snapshot.forEach(function (childSnapshot) {
       var key = childSnapshot.key();
